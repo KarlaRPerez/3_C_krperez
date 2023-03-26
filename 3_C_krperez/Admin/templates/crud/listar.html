@@ -1,0 +1,60 @@
+{% extends "../index_master.html" %}
+
+{% block content %}
+
+  <div class="right_col" role = "main" >
+
+  <h1>Listar Usuario</h1>
+  
+  <div class="table-responsive">
+  <form action="" method="get" target="_blank">
+
+  <p>
+
+    Buscar Nombre: <input type="search" name="busquedamodelos" list="listamodelos">
+
+    <input type="submit" value="Buscar">
+
+  </p>
+
+</form>
+    <table class="table table-striped table-danger">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody> 
+        {% for Usuarios in usuarios  %}
+            <tr >
+                <td scope="row">{{ Usuarios.id }}</td>
+                <td>{{ Usuarios.nombre }}</td>
+                <td>{{ Usuarios.apellido }}</td>
+                <td>{{ Usuarios.genero }}</td>
+                <td>{{ Usuarios.telefono }}</td>
+                <td>  <a name="" id="" class="btn btn-outline-info fa fa-edit" href="{% url 'editar' Usuarios.id %}" role="button"></a>
+                 <a name="" id="" class="btn btn-outline-danger fa fa-times" href="{% url 'eliminar' Usuarios.id %}" role="button"></a>
+               <td> 
+               
+               
+              
+               </td>
+              
+               </td>
+            </tr>
+           
+       
+
+             
+     {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  
+
+{% endblock  %}
